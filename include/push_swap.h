@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/07 18:59:25 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/08 19:58:13 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 # include "../printf/include/ft_printf.h"
+
+
 
 //operators.c
 void	swap(t_list **lst);
