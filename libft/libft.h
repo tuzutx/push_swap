@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:54:23 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/04/29 18:13:37 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/09 20:29:53 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	void			*content; //quizas tendré que cambiar esto a un int
 	struct s_list	*next;
 }					t_list;
 

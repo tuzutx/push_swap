@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:01:15 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/08 19:58:10 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/09 20:36:58 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,59 @@
 //2.Los números exceden los límites de int
 //3.Números duplicados
 
-void	errornum(char **argc)
+int	errorint(char *argc)
 {
-	int		i;
-	t_list	*a;
-
-	i = 0;
-	while (argc[i] != NULL)
-	{
-		a->content = atoi(argc[i]);
-		i++;
-		a = a->next;
-	}
-	return ;
+	if (atoi(argc) < -2147483648)
+		return (1);
+	else if (atoi(argc) > 2147483647)
+		return (1);
 }
 
-void	
+int	errornum(char **argc, t_push_swap *data)
+{
+	t_list	*aux;
 
+	data->i = 0;
+	data->a = malloc(sizeof(t_list));
+	if (!data->a)
+		return (1);
+	while (argc[data->i] != NULL)
+	{
+		if (errorint(argc[data->i] == 1))
+			return (1);
+		if (*(data->a) == NULL)
+			*(data->a) = ft_lstnew(atoi(argc[data->i]));
+		else
+		{
+			aux = *(data->a);
+			while (aux->next != NULL)
+				aux = aux->next;
+			aux->next = ft_lstnew(atoi(argc[data->i]));
+        }
+        data->i++;
+	}
+	return (0);
+}
+
+/* int	errordup(t_push_swap *data)
+{
+	t_list	orig;
+	t_list	comp;
+
+	while ()
+}
+ */
 int	errorargv(int argv, char **argc)
 {
+	t_push_swap	*data;
+
+	data = (t_push_swap *)ft_calloc(1, sizeof(t_push_swap));
+	if (!data)
+		return (1);
 	if (argv == 1)
 		ft_printf("Error: No se han añadido números");
-	errornum(argc);
+	errornum(argc, data);
+	//si hay algún error función para limpiar la lista y la estructura de los datos
+	return (0);
 }
 

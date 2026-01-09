@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/08 19:58:13 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/09 19:44:45 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include "../libft/libft.h"
 # include "../printf/include/ft_printf.h"
 
+typedef struct s_push_swap
+{
+	int		i;
+	t_list	**a;
+	t_list	**b;
+}			t_push_swap;
 
 
 //operators.c

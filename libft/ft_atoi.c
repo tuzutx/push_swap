@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:49:25 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/04/17 19:13:35 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/09 20:12:58 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_firstcharcter(const char *n, int *i, int *len, int *negative)
 	}
 }
 
-void	ft_loop(const char *n, int *result, int *i, int *len)
+void	ft_loop(const char *n, long int *result, int *i, int *len)
 {
 	while (n[*i] != '\0' && (n[*i] < ':' && n[*i] > '/'))
 	{
@@ -76,12 +76,12 @@ void	ft_loop(const char *n, int *result, int *i, int *len)
 	}
 }
 
-int	ft_atoi(const char *n)
+long int	ft_atoi(const char *n)
 {
-	int	i;
-	int	len;
-	int	result;
-	int	negative;
+	int			i;
+	int			len;
+	long int	result;
+	int			negative;
 
 	i = 0;
 	result = 0;
