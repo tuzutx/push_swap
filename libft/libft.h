@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:54:23 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/09 20:29:53 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:14:24 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 typedef struct s_list
 {
-	void			*content; //quizas tendré que cambiar esto a un int
+	int	content;
+	int	index;
+	int	push_cost;
 	struct s_list	*next;
 }					t_list;
 

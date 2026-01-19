@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:01:15 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/09 20:36:58 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/19 15:53:52 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	errorint(char *argc)
 		return (1);
 	else if (atoi(argc) > 2147483647)
 		return (1);
+	return (0);
 }
 
 int	errornum(char **argc, t_push_swap *data)
@@ -51,14 +52,27 @@ int	errornum(char **argc, t_push_swap *data)
 	return (0);
 }
 
-/* int	errordup(t_push_swap *data)
+int	errordup(t_push_swap *data)
 {
-	t_list	orig;
-	t_list	comp;
+	t_list	*orig;
+	t_list	*comp;
 
-	while ()
+	orig = *(data->a);
+	comp = *(data->a);
+	while (orig != NULL)
+	{
+		comp = orig->next;
+		while (comp != NULL)
+		{
+			if (comp->content == orig->content)
+				return (1);
+			comp = comp->next;
+		}
+		orig = orig->next;
+	}
+	return (0);
 }
- */
+
 int	errorargv(int argv, char **argc)
 {
 	t_push_swap	*data;
