@@ -1,20 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 19:00:20 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/21 20:47:34 by nolaeche         ###   ########.fr       */
+/*   Created: 2026/01/21 20:15:28 by nolaeche          #+#    #+#             */
+/*   Updated: 2026/01/21 20:46:00 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argv, char **argc)
+void	free_stack(t_list **stack)
 {
-	if (errorargv == 1)
-		return (1);
-	return (0);
+	t_list	*temp;
+	t_list	*current;
+
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		temp = current->next;
+		free(current);
+		current = temp;
+    }
+	*stack = NULL;
+}
+
+void	clean_all(t_push_swap *data)
+{
+	if (data->a)
+	{
+		free_stack(data->a);
+		free(data->a);
+	}
+	if (data->b)
+	{
+		free_stack(data->b);
+		free(data->b);
+	}
+	free(data);
+	write(2, "Error\n", 6);
 }

@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 19:00:20 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/21 20:47:34 by nolaeche         ###   ########.fr       */
+/*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
+/*   Updated: 2026/01/21 22:39:00 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argv, char **argc)
+void	set_index(t_list *stack)
 {
-	if (errorargv == 1)
-		return (1);
-	return (0);
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = ft_lstsize(stack) / 2;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median)
+			stack->median = 1;
+		else
+			stack->median = 0;
+		stack = stack->next;
+		i++;
+	}
 }
+
+void turkish_algo(t_push_swap *data)
+{
+	set_index(data->a);
+	
+}
+

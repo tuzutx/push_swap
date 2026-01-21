@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:54:23 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/19 17:14:24 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:52:27 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 typedef struct s_list
 {
-	int	content;
-	int	index;
-	int	push_cost;
+	int				content;
+	int				index;
+	int				push_cost;
+	int				median;
 	struct s_list	*next;
 }					t_list;
 

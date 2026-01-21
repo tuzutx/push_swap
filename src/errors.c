@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:01:15 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/19 15:53:52 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:46:52 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	errordup(t_push_swap *data)
 	return (0);
 }
 
+
 int	errorargv(int argv, char **argc)
 {
 	t_push_swap	*data;
@@ -81,9 +82,19 @@ int	errorargv(int argv, char **argc)
 	if (!data)
 		return (1);
 	if (argv == 1)
-		ft_printf("Error: No se han añadido números");
-	errornum(argc, data);
-	//si hay algún error función para limpiar la lista y la estructura de los datos
+	{
+		clean_all(data);
+		return (1);
+	}
+	if (errornum(argc, data) == 1)
+	{
+		clean_all(data);
+		return (1);
+	}
+	if (errordup(data) == 1)
+	{
+		clean_all(data);
+		return (1);
+	}
 	return (0);
 }
-
