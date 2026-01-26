@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/23 13:01:15 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/26 14:16:39 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ void	greedy(t_list *a, t_list *b, t_push_swap *data)
 		greedy_1(a, data);
 		(a->push_cost)++;
 		if (a->content > b->content)
-			a = a->next;
-		else if (a->content > (b->next)->content || a->content < c->content)
+			;
+		else if (((!b || !b->next) && a->content > (b->next)->content)|| a->content < c->content)
 			(a->push_cost)++;
 		else
 			greedy_2(a, b, c->index);
