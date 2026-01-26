@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/26 14:16:39 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/26 21:52:27 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void turkish_algo(t_push_swap *data)
 	
 }
 
-void	greedy_1(t_list *a, t_push_swap *data)
+void	cost_a(t_list *a, t_push_swap *data)
 {
 	if (a->median == 1)
 		a->push_cost = a->index;
@@ -81,14 +81,14 @@ void	greedy_1(t_list *a, t_push_swap *data)
 	
 } */
 
-void	greedy_2(t_list *a, t_list *b, int indexmax)
+void	cost_b(t_list *a, t_list *b, int indexmax)
 {
 	t_list	*c;
 	int		target;
 
 	c = b;
 	set_index(c);
-	while (c->content > a->content)
+	while (c && c->content > a->content)
 		c = c->next;
 	if (c->index < indexmax/2)
 		a->push_cost += c->index;
