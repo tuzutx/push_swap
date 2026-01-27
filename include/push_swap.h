@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: egaguirr <egaguirr@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/21 20:47:38 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/27 19:22:21 by egaguirr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ int		errorargv(int argv, char **argc);
 //clean.c
 void	free_stack(t_list **stack);
 void	clean_all(t_push_swap *data);
+//algo.c
+void	set_index(t_list *stack);
+void	turkish_algo(t_push_swap *data);
+//algorithm_motor.c
+void	cost_a(t_list *a, t_push_swap *data);
+void	cost_b(t_list *a,int target, int indexmax);
+int		target_b(t_list *a, t_list *b);
 
 #endif
