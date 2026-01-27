@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/26 21:52:27 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/01/27 14:15:31 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void turkish_algo(t_push_swap *data)
 	
 	//pasamos los primeros 2 elementos de la lista a a la b
 	//ordenamos la pila b
-	while (data->a)
+	while (data->a) //Hasta que en la pila a solo haya 3 números.
 	{
 		set_index(data->a);
 	//Algoritmo que cuente el coste de elección
@@ -84,7 +84,6 @@ void	cost_a(t_list *a, t_push_swap *data)
 void	cost_b(t_list *a, t_list *b, int indexmax)
 {
 	t_list	*c;
-	int		target;
 
 	c = b;
 	set_index(c);
@@ -96,15 +95,43 @@ void	cost_b(t_list *a, t_list *b, int indexmax)
 		a->push_cost += (indexmax - c->index);
 }
 
-void	greedy(t_list *a, t_list *b, t_push_swap *data)
+void	Target_b(t_list *a, t_list *b, t_push_swap *data)
 {
 	t_list	*c;
+	t_list	*d;
+	int		target;
 
 	c = b;
 	set_index(c);
-	while (c->next != NULL)
+	while (c && c->content > a->content)
 		c = c->next;
-	while(a)
+	if (!c)
+		target = ;//max in b
+	else if (c->next == NULL)
+		target = c->index;
+	else
+	{
+		d = c->next;
+		
+		while (d->next != NULL)
+		{
+			if(d->content < )
+		}
+	}
+	/* while (c->next != NULL && d->next != NULL)
+	{
+		if (c->content < a->content)
+		{
+			d = d->next;
+			while(c->content < d)
+		}
+		else
+		{
+			c = c->next;
+			d = d->next;
+		}
+	} */
+	/* while(a)
 	{
 		greedy_1(a, data);
 		(a->push_cost)++;
@@ -115,5 +142,5 @@ void	greedy(t_list *a, t_list *b, t_push_swap *data)
 		else
 			greedy_2(a, b, c->index);
 		a = a->next;
-	}
-}
+	}*/
+} 

@@ -6,7 +6,7 @@
 #    By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 17:06:03 by nolaeche          #+#    #+#              #
-#    Updated: 2026/01/07 17:09:56 by nolaeche         ###   ########.fr        #
+#    Updated: 2026/01/27 12:23:19 by nolaeche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ PRINTF_LDFLAGS = -L$(PRINTF_DIR) -lftprintf
 LIBFT_LDFLAGS = -L$(LIBFT_DIR) -lft
 
 
-SRCS_FILES = action/action1.c \
+SRCS_FILES = operators.c \
+			 main.c \
+			 errors.c \
+			 clean.c 
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
