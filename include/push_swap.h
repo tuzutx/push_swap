@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egaguirr <egaguirr@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/27 19:22:21 by egaguirr         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:29:49 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,11 @@ void	turkish_algo(t_push_swap *data);
 void	cost_a(t_list *a, t_push_swap *data);
 void	cost_b(t_list *a,int target, int indexmax);
 int		target_b(t_list *a, t_list *b);
+//algorithm_ejecution.c
+t_list	*cheapestfunc(t_list *a);
+void	in_the_same_median(t_push_swap *data, t_list *a, t_list *b);
+void	move_a(t_push_swap *data, t_list *a);
+void	move_b(t_push_swap *data, t_list *b);
+void	ejecution(t_push_swap *data);
 
 #endif

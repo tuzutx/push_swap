@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egaguirr <egaguirr@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/27 20:11:17 by egaguirr         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:42:18 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ void	set_index(t_list *stack)
 	}
 }
 
+void	count_i(t_list *a, t_push_swap *data)
+{
+	data->i = 0;
+	while (a)
+	{
+		a = a->next;
+		data->i++;
+	}
+}
+
 void	turkish_algo(t_push_swap *data)
 {
 	int	target;
@@ -42,15 +52,14 @@ void	turkish_algo(t_push_swap *data)
 	//ordenamos la pila b
 	while (data->a) //Hasta que en la pila a solo haya 3 números.
 	{//Motor
-		set_index(data->a);
-		cost_a(a, data);
-		target = target_b(a, b);
-		cost_b(a, target, data->i);
+		set_index(*data->a);
+		set_index(*data->b);
+		count_i(*data->a, data);
+		cost_a(*data->a, data);
+		target = target_b(*data->a, *data->b);
+		cost_b(*data->a, target, data->i);
 	//Seleccionar y ejecutar
-		//Encontrar el numero con menor coste en la pila A
-		//Mover la pila A para que ese numero este arriba
-		//Mover la pila B para que el target este arriba del todo
-		//pb
+		ejecution(data);
 	}
 	//Sort3
 	//pa todo

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_motor.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egaguirr <egaguirr@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:15:01 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/01/27 19:16:35 by egaguirr         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:47:55 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,45 +20,58 @@ void	cost_a(t_list *a, t_push_swap *data)
 		a->push_cost = data->i - a->index;
 }
 
-void	cost_b(t_list *a,int target, int indexmax)
+void	cost_b(t_list *a, t_list *target, int indexmax)
 {
-	if (target <= indexmax/2)
-		a->push_cost += target;
+	if (target->index <= indexmax / 2)
+		a->push_cost += target->index;
 	else
-		a->push_cost += (indexmax - target);
+		a->push_cost += (indexmax - target->index);
 	a->push_cost++;
 }
 
-int	target_b(t_list *a, t_list *b)
+t_list	*target_b(t_list *a, t_list *b)
 {
-	t_list		*c;
-	int			targetindx;
-	long int	target;
+	t_list	*c;
+	t_list	*target;
+	long	targetcont;
 
 	c = b;
-	target = -2147483649;
-	set_index(c);
+	target = NULL;
+	targetcont = -2147483649;
 	while (c)
 	{
-		if (c->content < a->content && target < c->content)
+		if (c->content < a->content && targetcont < c->content)
 		{
-			target = c->content;
-			targetindx = c->index;
+			targetcont = c->content;
+			target = c;
 		}
 		c = c->next;
 	}
-	if (target == -2147483649;)
+	if (target == NULL)
 	{
 		c = b;
 		while (c)
 		{
-			if (target < c->content)
+			if (targetcont < c->content)
 			{
-				target = c->content
-				targetindx = c->index;
+				targetcont = c->content;
+				target = c;
 			}
-			c = c->next
+			c = c->next;
 		}
 	}
-	return (targetindx);
+	return (target);
+}
+
+void	motor(t_push_swap *data)
+{
+	t_list	*target;
+
+	set_index(*data->a);
+	set_index(*data->b);
+	count_i(*data->a, data);
+	cost_a(*data->a, data);
+	target = target_b(*data->a, *data->b);
+	cost_b(*data->a, target, data->i);
+	return ;
 }
