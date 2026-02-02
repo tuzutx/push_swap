@@ -3,16 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_sort3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 17:36:13 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/28 18:00:48 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/01 13:20:39 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	higher(t_list *a)
+t_list	*lowestfunc(t_list *a)
+{
+	t_list	*lowest;
+
+	lowest = a;
+	a = a->next;
+	while (a)
+	{
+		if (lowest->content > a->content)
+			lowest = a;
+		a = a->next;
+	}
+	return (lowest);
+}
+
+int	higherfunc(t_list *a)
 {
 	int	higher;
 	int	indx;
@@ -36,7 +51,7 @@ void	sort_three(t_push_swap *data, t_list *a)
 {
 	int	higher;
 
-	higher = higher(a);
+	higher = higherfunc(a);
 	if (higher == 1)
 	{
 		rotate(data->a);
@@ -52,4 +67,24 @@ void	sort_three(t_push_swap *data, t_list *a)
 		swap(data->a);
 		ft_printf("sa\n");
 	}
+}
+
+void	ejecution_2(t_push_swap *data, t_list *a, t_list *b)
+{
+	t_list	*target;
+	t_list	*lowest;
+
+	while (b)
+	{
+		target = target_b(b, a);
+		move_a(data, a);
+		push(data->b, data->a);
+		ft_printf("pa");
+	}
+	lowest = lowestfunc(a);
+	while (a->content > lowest->content)
+	{
+		
+	}
+	return ;
 }
