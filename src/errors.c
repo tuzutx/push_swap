@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:01:15 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/21 20:46:52 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:38:26 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	errornum(char **argc, t_push_swap *data)
 	data->a = malloc(sizeof(t_list));
 	if (!data->a)
 		return (1);
+	data->b = malloc(sizeof(t_list));
+	if (!data->b)
+		return (1);
 	while (argc[data->i] != NULL)
 	{
 		if (errorint(argc[data->i] == 1))
@@ -46,8 +49,8 @@ int	errornum(char **argc, t_push_swap *data)
 			while (aux->next != NULL)
 				aux = aux->next;
 			aux->next = ft_lstnew(atoi(argc[data->i]));
-        }
-        data->i++;
+		}
+		data->i++;
 	}
 	return (0);
 }
@@ -72,7 +75,6 @@ int	errordup(t_push_swap *data)
 	}
 	return (0);
 }
-
 
 int	errorargv(int argv, char **argc)
 {

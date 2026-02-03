@@ -6,62 +6,43 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/28 17:42:18 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:28:01 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	set_index(t_list *stack)
+void	order_first_two(t_push_swap *data, t_list *b)
 {
-	int	i;
-	int	median;
-
-	i = 0;
-	if (!stack)
-		return ;
-	median = ft_lstsize(stack) / 2;
-	while (stack)
+	if (b->content < (b->next)->content)
 	{
-		stack->index = i;
-		if (i <= median)
-			stack->median = 1;
-		else
-			stack->median = 0;
-		stack = stack->next;
-		i++;
+		swap(data->b);
+		ft_printf("sb");
 	}
+	return ;
 }
 
-void	count_i(t_list *a, t_push_swap *data)
+void	first_step(t_push_swap *data)
 {
-	data->i = 0;
-	while (a)
-	{
-		a = a->next;
-		data->i++;
-	}
+	push(data->a, data->b);
+	ft_printf("pb\n");
+	push(data->a, data->b);
+	ft_printf("pb\n");
+	order_first_two(data, *data->b);
+	return ;
 }
 
 void	turkish_algo(t_push_swap *data)
 {
 	int	target;
-	//crear copiar de lista a y b
-	
-	//pasamos los primeros 2 elementos de la lista a a la b
-	//ordenamos la pila b
-	while (data->a) //Hasta que en la pila a solo haya 3 números.
-	{//Motor
-		set_index(*data->a);
-		set_index(*data->b);
-		count_i(*data->a, data);
-		cost_a(*data->a, data);
-		target = target_b(*data->a, *data->b);
-		cost_b(*data->a, target, data->i);
-	//Seleccionar y ejecutar
+
+	first_step(data);
+	while (data->i > 3)
+	{
+		motor(data);
 		ejecution(data);
 	}
-	//Sort3
-	//pa todo
-	//Poner el num más pequeño en la posición 0	
+	sort_three(data);
+	ejecution_2(data);
+	return ;
 }

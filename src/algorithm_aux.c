@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   algorithm_aux.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 20:15:28 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 12:26:47 by nolaeche         ###   ########.fr       */
+/*   Created: 2026/02/03 13:26:08 by nolaeche          #+#    #+#             */
+/*   Updated: 2026/02/03 13:27:14 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_stack(t_list **stack)
+void	set_index(t_list *stack)
 {
-	t_list	*temp;
-	t_list	*current;
+	int	i;
+	int	median;
 
-	if (!stack || !*stack)
+	i = 0;
+	if (!stack)
 		return ;
-	current = *stack;
-	while (current)
+	median = ft_lstsize(stack) / 2;
+	while (stack)
 	{
-		temp = current->next;
-		free(current);
-		current = temp;
+		stack->index = i;
+		if (i <= median)
+			stack->median = 1;
+		else
+			stack->median = 0;
+		stack = stack->next;
+		i++;
 	}
-	*stack = NULL;
 }
 
-void	clean_all(t_push_swap *data)
+void	count_i(t_list *a, t_push_swap *data)
 {
-	if (data->a)
+	while (a)
 	{
-		free_stack(data->a);
-		free(data->a);
+		a = a->next;
+		data->i++;
 	}
-	if (data->b)
-	{
-		free_stack(data->b);
-		free(data->b);
-	}
-	free(data);
-	write(2, "Error\n", 6);
 }

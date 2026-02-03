@@ -6,7 +6,7 @@
 #    By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 17:06:03 by nolaeche          #+#    #+#              #
-#    Updated: 2026/01/27 12:23:19 by nolaeche         ###   ########.fr        #
+#    Updated: 2026/02/03 13:41:44 by nolaeche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,12 @@ PRINTF_LDFLAGS = -L$(PRINTF_DIR) -lftprintf
 LIBFT_LDFLAGS = -L$(LIBFT_DIR) -lft
 
 
-SRCS_FILES = operators.c \
+SRCS_FILES = algo.c \
+			 algorithm_aux.c \
+			 algorithm_ejecution.c \
+			 algorithm_motor.c \
+			 algorithm_sort3.c \
+			 operators.c \
 			 main.c \
 			 errors.c \
 			 clean.c 

@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:15:01 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/01/28 17:47:55 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:24:03 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	cost_a(t_list *a, t_push_swap *data)
 		a->push_cost = a->index;
 	else
 		a->push_cost = data->i - a->index;
+	return ;
 }
 
 void	cost_b(t_list *a, t_list *target, int indexmax)
@@ -27,39 +28,46 @@ void	cost_b(t_list *a, t_list *target, int indexmax)
 	else
 		a->push_cost += (indexmax - target->index);
 	a->push_cost++;
+	return ;
+}
+
+t_list	*if_target_not_found(t_list *b)
+{
+	t_list	*target;
+	long	targetcont;
+
+	target = NULL;
+	targetcont = -2147483649;
+	while (b)
+	{
+		if (targetcont < b->content)
+		{
+			targetcont = b->content;
+			target = b;
+		}
+		b = b->next;
+	}
+	return (target);
 }
 
 t_list	*target_b(t_list *a, t_list *b)
 {
-	t_list	*c;
 	t_list	*target;
 	long	targetcont;
 
-	c = b;
 	target = NULL;
 	targetcont = -2147483649;
-	while (c)
+	while (b)
 	{
-		if (c->content < a->content && targetcont < c->content)
+		if (b->content < b->content && targetcont < b->content)
 		{
-			targetcont = c->content;
-			target = c;
+			targetcont = b->content;
+			target = b;
 		}
-		c = c->next;
+		b = b->next;
 	}
 	if (target == NULL)
-	{
-		c = b;
-		while (c)
-		{
-			if (targetcont < c->content)
-			{
-				targetcont = c->content;
-				target = c;
-			}
-			c = c->next;
-		}
-	}
+		if_target_not_found(b);
 	return (target);
 }
 
