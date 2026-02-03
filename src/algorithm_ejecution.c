@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_selection.c                              :+:      :+:    :+:   */
+/*   algorithm_ejecution.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:12:36 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/01/28 17:27:23 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:47:55 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ void	ejecution(t_push_swap *data)
 	move_a(data, cheapest);
 	move_b(data, target);
 	push(data->a, data->b);
-	ft_printf("pb");
+	ft_printf("pb\n");
 	return ;
 }

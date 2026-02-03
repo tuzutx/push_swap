@@ -6,7 +6,7 @@
 #    By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 17:06:03 by nolaeche          #+#    #+#              #
-#    Updated: 2026/02/03 13:41:44 by nolaeche         ###   ########.fr        #
+#    Updated: 2026/02/03 16:17:32 by nolaeche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CFLAGS = -Wall -Werror -Wextra -g3
 
 SRCS_DIR = src
 INCS_DIR = include
+LIBFT_DIR = libft
+PRINTF_DIR = printf
 
 LIBFT_CFLAGS = -I$(LIBFT_DIR)
 
@@ -44,13 +46,13 @@ OBJS = $(SRCS:.c=.o)
 all: libft/libft.a printf/libftprintf.a $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) $(PRINTF_LDFLAGS) $(LIBFT_LDFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L$(PRINTF_DIR) -lftprintf -L$(LIBFT_DIR) -lft -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(LIBFT_CFLAGS) $(PROJ_CFLAGS) -c $< -o $@
 
 libft/libft.a:
-	@make -C libft
+	@make bonus -C libft
 
 printf/libftprintf.a:
 	@make -C printf

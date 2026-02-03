@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:15:01 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/02/03 13:24:03 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:18:49 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_list	*target_b(t_list *a, t_list *b)
 	targetcont = -2147483649;
 	while (b)
 	{
-		if (b->content < b->content && targetcont < b->content)
+		if (b->content < a->content && targetcont < b->content)
 		{
 			targetcont = b->content;
 			target = b;

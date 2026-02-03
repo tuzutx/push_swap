@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:01:15 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 13:38:26 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:39:26 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,32 @@
 
 int	errorint(char *argc)
 {
-	if (atoi(argc) < -2147483648)
-		return (1);
-	else if (atoi(argc) > 2147483647)
+	if (ft_atoi(argc) < -2147483648 || ft_atoi(argc) > 2147483647)
 		return (1);
 	return (0);
 }
 
 int	errornum(char **argc, t_push_swap *data)
 {
-	t_list	*aux;
+	t_list  *new_node;
 
-	data->i = 0;
-	data->a = malloc(sizeof(t_list));
+	data->i = 1;
+	data->a = malloc(sizeof(t_list *)); 
 	if (!data->a)
 		return (1);
-	data->b = malloc(sizeof(t_list));
+	*(data->a) = NULL;
+	data->b = malloc(sizeof(t_list *)); 
 	if (!data->b)
 		return (1);
+	*(data->b) = NULL;
 	while (argc[data->i] != NULL)
 	{
-		if (errorint(argc[data->i] == 1))
+		if (is_valid(argc[data->i]) == 1)
 			return (1);
-		if (*(data->a) == NULL)
-			*(data->a) = ft_lstnew(atoi(argc[data->i]));
-		else
-		{
-			aux = *(data->a);
-			while (aux->next != NULL)
-				aux = aux->next;
-			aux->next = ft_lstnew(atoi(argc[data->i]));
-		}
+		if (ft_atoi(argc[data->i]) < -2147483648L || ft_atoi(argc[data->i]) > 2147483647L)
+			return (1);
+		new_node = ft_lstnew(ft_atoi(argc[data->i]));
+		ft_lstadd_back(data->a, new_node);
 		data->i++;
 	}
 	return (0);
@@ -61,8 +56,7 @@ int	errordup(t_push_swap *data)
 	t_list	*comp;
 
 	orig = *(data->a);
-	comp = *(data->a);
-	while (orig != NULL)
+	while (orig->next != NULL)
 	{
 		comp = orig->next;
 		while (comp != NULL)
@@ -88,15 +82,19 @@ int	errorargv(int argv, char **argc)
 		clean_all(data);
 		return (1);
 	}
+	ft_printf("Has metido argumentos!\n");
 	if (errornum(argc, data) == 1)
 	{
 		clean_all(data);
 		return (1);
 	}
+	ft_printf("Los valores son int!\n");
 	if (errordup(data) == 1)
 	{
 		clean_all(data);
 		return (1);
 	}
+	ft_printf("Los valores no están duplicados!\n");
+	push_swap(data);
 	return (0);
 }

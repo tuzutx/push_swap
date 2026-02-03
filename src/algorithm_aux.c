@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:26:08 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 13:27:14 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:40:14 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,23 @@ void	count_i(t_list *a, t_push_swap *data)
 		a = a->next;
 		data->i++;
 	}
+}
+
+int	is_valid(char *argc)
+{
+	int	i;
+
+	i = 0;
+	if (argc[i] == '-' || argc[i] == '+')
+		i++;
+	if (argc[i] == '\0')
+		return (1);
+	while (argc[i] != '\0')
+	{
+		if ((argc[i] <= '9' && argc[i] >= '0'))
+			i++;
+		else
+			return (1);
+	}
+	return (0);
 }

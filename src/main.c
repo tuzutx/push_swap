@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:00:20 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/21 20:47:34 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 16:55:29 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argv, char **argc)
 {
-	if (errorargv == 1)
+	if (errorargv(argv, argc) == 1)
 		return (1);
 	return (0);
 }

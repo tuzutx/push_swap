@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 17:36:13 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 12:15:34 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:26:43 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	higherfunc(t_list *a)
 		}
 		a = a->next;
 	}
+	return (indx);
 }
 
 void	sort_three(t_push_swap *data, t_list *a)
@@ -59,7 +60,7 @@ void	sort_three(t_push_swap *data, t_list *a)
 	}
 	else if (higher == 2)
 	{
-		reverser_rotate(data->a);
+		reverse_rotate(data->a);
 		ft_printf("ra\n");
 	}
 	if (a->content > (a->next)->content)
@@ -77,7 +78,7 @@ void	ejecution_2(t_push_swap *data)
 	while (*data->b)
 	{
 		target = target_b(*data->b, *data->a);
-		move_a(data, *data->a);
+		move_a(data, target);
 		push(data->b, data->a);
 		ft_printf("pa");
 	}

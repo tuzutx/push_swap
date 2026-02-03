@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:49:25 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/01/09 20:12:58 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/03 17:31:37 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ void	ft_loop(const char *n, long int *result, int *i, int *len)
 	}
 }
 
-long int	ft_atoi(const char *n)
+long	ft_atoi(const char *n)
 {
-	int			i;
-	int			len;
-	long int	result;
-	int			negative;
+	int		i;
+	int		len;
+	long	result;
+	int		negative;
 
 	i = 0;
 	result = 0;
