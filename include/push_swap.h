@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 18:06:32 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/09 16:39:47 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,17 @@ void	move_a(t_push_swap *data, t_list *a);
 void	move_b(t_push_swap *data, t_list *b);
 void	ejecution(t_push_swap *data);
 //algorithm_sort2.c
-t_list	*lowestfunc(t_list *a);
 int		higherfunc(t_list *a);
-void	sort_three(t_push_swap *data, t_list *a);
-void	ejecution_2(t_push_swap *data);
+void	sort_three(t_push_swap *data);
 //algorithm_aux.c
 void	set_index(t_list *stack);
 void	count_i(t_list *a, t_push_swap *data);
 int		is_valid(char *argc);
+void	print_a(t_list *a);
+//algorithm_ejecution2.c
+t_list	*if_target_not_found_a(t_list *a);
+t_list	*target_a(t_list *b, t_list *a);
+t_list	*lowestfunc(t_list *a);
+void	ejecution_2(t_push_swap *data);
 
 #endif

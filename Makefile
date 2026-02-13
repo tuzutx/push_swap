@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+         #
+#    By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 17:06:03 by nolaeche          #+#    #+#              #
-#    Updated: 2026/02/03 16:17:32 by nolaeche         ###   ########.fr        #
+#    Updated: 2026/02/05 18:14:32 by nolaeche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRCS_FILES = algo.c \
 			 operators.c \
 			 main.c \
 			 errors.c \
-			 clean.c 
+			 clean.c \
+			 algorithm_ejecution2.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 

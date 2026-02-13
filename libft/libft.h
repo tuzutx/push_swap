@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:54:23 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 16:31:53 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/09 21:06:14 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 	int				index;
 	int				push_cost;
 	int				median;
+	struct s_list	*target;
 	struct s_list	*next;
 }					t_list;
 

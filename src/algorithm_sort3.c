@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_sort3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 17:36:13 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 15:26:43 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/09 16:39:36 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-t_list	*lowestfunc(t_list *a)
-{
-	t_list	*lowest;
-
-	lowest = a;
-	a = a->next;
-	while (a)
-	{
-		if (lowest->content > a->content)
-			lowest = a;
-		a = a->next;
-	}
-	return (lowest);
-}
 
 int	higherfunc(t_list *a)
 {
@@ -48,41 +33,26 @@ int	higherfunc(t_list *a)
 	return (indx);
 }
 
-void	sort_three(t_push_swap *data, t_list *a)
+void	sort_three(t_push_swap *data)
 {
-	int	higher;
+	int		higher;
+	t_list	*a;
 
 	higher = higherfunc(*data->a);
-	if (higher == 1)
+	if (higher == 0)
 	{
 		rotate(data->a);
 		ft_printf("ra\n");
 	}
-	else if (higher == 2)
+	else if (higher == 1)
 	{
 		reverse_rotate(data->a);
-		ft_printf("ra\n");
+		ft_printf("rra\n");
 	}
+	a = *data->a;
 	if (a->content > (a->next)->content)
 	{
 		swap(data->a);
 		ft_printf("sa\n");
 	}
-}
-
-void	ejecution_2(t_push_swap *data)
-{
-	t_list	*target;
-	t_list	*lowest;
-
-	while (*data->b)
-	{
-		target = target_b(*data->b, *data->a);
-		move_a(data, target);
-		push(data->b, data->a);
-		ft_printf("pa");
-	}
-	lowest = lowestfunc(*data->a);
-	move_a(data, lowest);
-	return ;
 }

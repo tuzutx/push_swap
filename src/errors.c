@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:01:15 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 18:39:26 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/09 16:39:20 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,21 +80,21 @@ int	errorargv(int argv, char **argc)
 	if (argv == 1)
 	{
 		clean_all(data);
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	ft_printf("Has metido argumentos!\n");
 	if (errornum(argc, data) == 1)
 	{
 		clean_all(data);
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	ft_printf("Los valores son int!\n");
 	if (errordup(data) == 1)
 	{
 		clean_all(data);
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	ft_printf("Los valores no están duplicados!\n");
 	push_swap(data);
 	return (0);
 }

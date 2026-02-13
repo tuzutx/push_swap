@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_ejecution.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:12:36 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/02/03 18:47:55 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:30:49 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*cheapestfunc(t_list *a)
 
 void	in_the_same_median(t_push_swap *data, t_list *a, t_list *b)
 {
-	while (*data->a != a && *data->b != b)
+	while ((a->index == 1) && (b->index == 1))
 	{
 		if (a->median == 1 && b->median == 1)
 		{
@@ -48,6 +48,8 @@ void	in_the_same_median(t_push_swap *data, t_list *a, t_list *b)
 		}
 		else
 			break ;
+		set_index(a);
+		set_index(b);
 	}
 }
 
@@ -65,6 +67,7 @@ void	move_a(t_push_swap *data, t_list *a)
 			reverse_rotate(data->a);
 			ft_printf("rra\n");
 		}
+		set_index(a);
 	}
 	return ;
 }
@@ -83,6 +86,7 @@ void	move_b(t_push_swap *data, t_list *b)
 			reverse_rotate(data->b);
 			ft_printf("rrb\n");
 		}
+		set_index(b);
 	}
 	return ;
 }
@@ -93,7 +97,9 @@ void	ejecution(t_push_swap *data)
 	t_list	*target;
 
 	cheapest = cheapestfunc(*data->a);
-	target = target_b(*data->a, *data->b);
+	ft_printf("El cheapest es: %d\n", cheapest->content);
+	target = target_b(cheapest, *data->b);
+	ft_printf("Target final: %d\n", target->content);
 	in_the_same_median(data, cheapest, target);
 	move_a(data, cheapest);
 	move_b(data, target);

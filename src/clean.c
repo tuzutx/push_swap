@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:15:28 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/03 12:26:47 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/09 16:39:50 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,4 @@ void	clean_all(t_push_swap *data)
 		free(data->b);
 	}
 	free(data);
-	write(2, "Error\n", 6);
 }
