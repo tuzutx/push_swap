@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:48:12 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/10 14:19:46 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/16 11:32:58 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,13 @@ void	turkish_algo(t_push_swap *data)
 	count_i(*data->a, data);
 	while (data->i > 3)
 	{
-		print_a(*data->a);
 		motor(data);
 		ejecution(data);
 		count_i(*data->a, data);
 	}
-	ft_printf("Antes del sort 3\n");
-	print_a(*data->a);
-	print_a(*data->b);
-	sort_three(data);
-	ejecution_2(data);
+	//ft_printf("Llegamos al sort3\n");
+	/*sort_three(data);
+	ejecution_2(data); */
 	return ;
 }
 
@@ -79,6 +76,6 @@ void	push_swap(t_push_swap *data)
 	}
 	else
 		turkish_algo(data);
-	print_a(*data->a);
+	//print_a(*data->a);
 	clean_all(data);
 }

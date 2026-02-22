@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:15:01 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/02/13 12:12:29 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:24:24 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,36 @@ void	cost_a(t_list *a, t_push_swap *data)
 		a->push_cost = a->index;
 	else
 		a->push_cost = data->i - a->index;
+	a->push_cost++;
 	return ;
 }
 
 void	cost_b(t_list *a, t_list *target, int indexmax)
 {
-	if (target->index <= indexmax / 2)
+	if (a->median == target->median && a->median == 1)
+	{
+		if ((a->index >= target->index))
+			return;
+		else
+		{
+			a->push_cost += target->index - a->index;
+			return;
+		}
+	}
+	else if (a->median == target->median && a->median == 0)
+	{
+		if ((a->index <= target->index))
+			return;
+		else
+		{
+			a->push_cost += a->index - target->index;
+			return;
+		}
+	}
+	if (target->median == 1)
 		a->push_cost += target->index;
 	else
 		a->push_cost += (indexmax - target->index);
-	a->push_cost++;
 	return ;
 }
 
@@ -70,7 +90,6 @@ t_list	*target_b(t_list *a, t_list *b)
 	}
 	if (target == NULL)
 		target = if_target_not_found(c);
-	ft_printf("Target is : %d\n", target->content);
 	return (target);
 }
 
@@ -83,12 +102,13 @@ void	motor(t_push_swap *data)
 	a = *data->a;
 	set_index(*data->a);
 	set_index(*data->b);
+	count_indx_b(*data->b, data);
 	while (a)
 	{
 		cost_a(a, data);
 		target = target_b(a, *data->b);
 		a->target = target;
-		cost_b(a, target, data->i);
+		cost_b(a, target, data->indx_b);
 		a = a->next;
 	}
 	return ;

@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:26:08 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/05 16:57:09 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:28:38 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,16 @@ void	set_index(t_list *stack)
 		i++;
 	}
 }
-
+void	count_indx_b(t_list *b, t_push_swap *data)
+{
+	data->indx_b = 0;
+	while (b)
+	{
+		b = b->next;
+		data->indx_b++;
+	}
+	return ;
+}
 void	count_i(t_list *a, t_push_swap *data)
 {
 	data->i = 0;

@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/09 16:39:47 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/16 11:21:05 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_push_swap
 {
 	int		i;
+	int		indx_b;
 	t_list	**a;
 	t_list	**b;
 }			t_push_swap;
@@ -60,6 +61,7 @@ int		higherfunc(t_list *a);
 void	sort_three(t_push_swap *data);
 //algorithm_aux.c
 void	set_index(t_list *stack);
+void	count_indx_b(t_list *b, t_push_swap *data);
 void	count_i(t_list *a, t_push_swap *data);
 int		is_valid(char *argc);
 void	print_a(t_list *a);

@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:39:33 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/10 14:58:21 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/13 20:37:19 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_list	*if_target_not_found_a(t_list *a)
 		{
 			targetcont = a->content;
 			target = a;
-			ft_printf("The actual target is: %d\n", target->content);
 		}
 		a = a->next;
 	}
@@ -41,19 +40,17 @@ t_list	*target_a(t_list *b, t_list *a)
 	target = NULL;
 	c = a;
 	targetcont = 2147483649;
-	ft_printf("The actual cheapest is: %d\n", b->content);
 	while (a)
 	{
-		if ((a->content < b->content) && (targetcont > a->content))
+		if ((a->content > b->content) && (targetcont > a->content))
 		{
 			targetcont = a->content;
 			target = a;
-			ft_printf("The actual target is: %d\n", target->content);
 		}
 		a = a->next;
 	}
 	if (target == NULL)
-		target = if_target_not_found(c);
+		target = if_target_not_found_a(c);
 	return (target);
 }
 
@@ -82,7 +79,6 @@ void	ejecution_2(t_push_swap *data)
 		target = target_a(*data->b, *data->a);
 		move_a(data, target);
 		push(data->b, data->a);
-		ft_printf("pa\n");
 	}
 	lowest = lowestfunc(*data->a);
 	move_a(data, lowest);

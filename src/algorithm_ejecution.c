@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:12:36 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/02/13 12:30:49 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/16 11:54:50 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*cheapestfunc(t_list *a)
 	int		comp;
 
 	comp = 2147483647;
-	while (a->next != NULL)
+	while (a)
 	{
 		if (comp > a->push_cost)
 		{
@@ -32,7 +32,7 @@ t_list	*cheapestfunc(t_list *a)
 
 void	in_the_same_median(t_push_swap *data, t_list *a, t_list *b)
 {
-	while ((a->index == 1) && (b->index == 1))
+	while ((*data->a != a && *data->b != b))
 	{
 		if (a->median == 1 && b->median == 1)
 		{
@@ -97,9 +97,7 @@ void	ejecution(t_push_swap *data)
 	t_list	*target;
 
 	cheapest = cheapestfunc(*data->a);
-	ft_printf("El cheapest es: %d\n", cheapest->content);
 	target = target_b(cheapest, *data->b);
-	ft_printf("Target final: %d\n", target->content);
 	in_the_same_median(data, cheapest, target);
 	move_a(data, cheapest);
 	move_b(data, target);
