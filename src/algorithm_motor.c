@@ -3,25 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_motor.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:15:01 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/02/16 18:24:24 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:38:57 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	cost_a(t_list *a, t_push_swap *data)
+ void	cost(t_list *a, t_list *b, int maxa, int maxb)
 {
 	if (a->median == 1)
 		a->push_cost = a->index;
 	else
-		a->push_cost = data->i - a->index;
-	a->push_cost++;
+		a->push_cost = maxa - a->index;
+	if (b->median == 1)
+		a->push_cost += b->index;
+	else
+		a->push_cost += maxb - b->index;
 	return ;
 }
-
+/*
 void	cost_b(t_list *a, t_list *target, int indexmax)
 {
 	if (a->median == target->median && a->median == 1)
@@ -49,7 +52,7 @@ void	cost_b(t_list *a, t_list *target, int indexmax)
 	else
 		a->push_cost += (indexmax - target->index);
 	return ;
-}
+} */
 
 t_list	*if_target_not_found(t_list *b)
 {
@@ -93,6 +96,34 @@ t_list	*target_b(t_list *a, t_list *b)
 	return (target);
 }
 
+void	push_cost(t_list *target, t_list *a, t_push_swap *data)
+{
+	int	mv_a;
+	int	mv_b;
+
+	a->push_cost = 0;
+	if (a->median == target->median && a->median == 1)
+	{
+		if (a->index <= target->index)
+			a->push_cost = target->index;
+		else
+			a->push_cost = a->index;
+	}
+	else if (a->median == target->median && a->median == 0)
+	{
+		mv_a = data->i - a->index;
+		mv_b = data->indx_b - target->index;
+		if (mv_a <= mv_b)
+			a->push_cost = mv_b;
+		else
+			a->push_cost = mv_a;
+	}
+	else
+		cost(a, target, data->i, data->indx_b);
+	return ;
+
+}
+
 void	motor(t_push_swap *data)
 {
 	t_list	*target;
@@ -105,10 +136,11 @@ void	motor(t_push_swap *data)
 	count_indx_b(*data->b, data);
 	while (a)
 	{
-		cost_a(a, data);
+		//cost_a(a, data);
 		target = target_b(a, *data->b);
 		a->target = target;
-		cost_b(a, target, data->indx_b);
+		//cost_b(a, target, data->indx_b);
+		push_cost(target, a, data);
 		a = a->next;
 	}
 	return ;

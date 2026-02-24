@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:57:09 by nolaeche          #+#    #+#             */
-/*   Updated: 2026/02/16 11:21:05 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:36:52 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	first_step(t_push_swap *data);
 void	turkish_algo(t_push_swap *data);
 void	push_swap(t_push_swap *data);
 //algorithm_motor.c
-void	cost_a(t_list *a, t_push_swap *data);
-void	cost_b(t_list *a, t_list *target, int indexmax);
+void	cost(t_list *a, t_list*b, int maxa, int maxb);
 t_list	*if_target_not_found(t_list *b);
 t_list	*target_b(t_list *a, t_list *b);
+void	push_cost(t_list *target, t_list *a, t_push_swap *data);
 void	motor(t_push_swap *data);
 //algorithm_ejecution.c
 t_list	*cheapestfunc(t_list *a);

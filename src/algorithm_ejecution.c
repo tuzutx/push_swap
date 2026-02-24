@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_ejecution.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:12:36 by egaguirr          #+#    #+#             */
-/*   Updated: 2026/02/16 11:54:50 by nolaeche         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:09:20 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	ejecution(t_push_swap *data)
 	t_list	*target;
 
 	cheapest = cheapestfunc(*data->a);
-	target = target_b(cheapest, *data->b);
+	ft_printf("--- DEBUG: El motor dice que costará: %d ---\n", cheapest->push_cost);
+	target = cheapest->target;
 	in_the_same_median(data, cheapest, target);
 	move_a(data, cheapest);
 	move_b(data, target);
